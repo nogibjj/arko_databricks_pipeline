@@ -37,6 +37,7 @@ Note: Install all additional packages that are required to run the pipeline.
 ![image](https://github.com/user-attachments/assets/b8edfe08-4c1d-44e6-994f-a8040db678bf)
 
 Note: The source code for each individual task in the workflow is synced with this Github repo.
+![image](https://github.com/user-attachments/assets/c97c3ec0-d4cd-446b-8a0e-2b9f74591728)
 
 
 ## Steps to update modules and deploy
