@@ -9,10 +9,21 @@ def sanitize_column_name(col_name):
     - Convert to lowercase
     - Replace spaces and special characters with underscores
     - Remove any leading or trailing spaces
+    - Remove square brackets ([]), curly brackets ({}), round brackets (())
     """
-    col_name = col_name.strip()  # Remove leading/trailing spaces
-    col_name = col_name.lower()  # Convert to lowercase
-    col_name = re.sub(r'[^a-z0-9_]', '_', col_name)  # Replace non-alphanumeric characters with underscores
+    # Strip leading/trailing spaces
+    col_name = col_name.strip()
+
+    # Convert to lowercase
+    col_name = col_name.lower()
+
+    # Replace any invalid characters with underscores
+    # This removes commas, semicolons, curly and round brackets, newlines, tabs, and equals sign
+    col_name = re.sub(r'[^\w\s]', '_', col_name)  # Replace non-word and non-space characters with underscore
+
+    # Replace spaces with underscores
+    col_name = col_name.replace(" ", "_")
+
     return col_name
 
 def extract_in_chunks(
@@ -21,8 +32,8 @@ def extract_in_chunks(
     chunk_size=10000
 ):
     """
-    Extracts CSV data from a URL, processes it in chunks, renames 'Close(t)' to 'Close',
-    sanitizes all column names, and writes the processed data to DBFS.
+    Extracts CSV data from a URL, processes it in chunks, sanitizes all column names,
+    and writes the processed data to DBFS.
     """
     try:
         # Download the data from the URL
@@ -39,14 +50,9 @@ def extract_in_chunks(
         first_chunk = True  # Flag to write header only once
 
         for chunk in chunk_iter:
-            # Sanitize the column names
+            # Sanitize all column names
             print("Sanitizing column names")
             chunk.columns = [sanitize_column_name(col) for col in chunk.columns]
-
-            # Rename 'close(t)' column to 'close' (already sanitized)
-            if "close_t" in chunk.columns:
-                print("Renaming column 'close_t' to 'close'")
-                chunk = chunk.rename(columns={"close_t": "close"})
 
             # Append or write the chunk to the DBFS file
             with open(temp_file_path, "a" if not first_chunk else "w") as f:
