@@ -6,10 +6,10 @@ This project demonstrates how to setup a ELT pipeline in Databricks.
 The pipeline will first extract data from a source and then load it into DBFS. Consequently, it take the DBFS file as input and then load it into catalog tables in stages (inbound -> staging -> processed) based on sequential processing.
 
 ## Pipeline Function
-- A `modules/extract.py` script to extract a csv file from github and then store it in dbfs.
-- A `modules/load.py` script to load dbfs file into the inbound table.
-- A `modules/transform.py` script to fetch data from inbound table, then perform transformations, and then load into the staging table.
-- A `modules/query.py` custom script that take s the staging table and then outputs the % change in close value for the past 5 days, into the processed table.
+- A `modules/extract.py` script to extract a csv file from github and then store it in dbfs. [`extract` task]
+- A `modules/load.py` script to load dbfs file into the inbound table. [`load` task]
+- A `modules/transform.py` script to fetch data from inbound table, then perform transformations, and then load into the staging table. [`transform` task]
+- A `modules/query.py` custom script that takes the staging table and then outputs the % change in close value for the past 5 days, into the processed table. [`query` task]
 
 
 ## Project Structure
