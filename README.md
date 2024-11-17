@@ -51,6 +51,7 @@ git add .
 git commit -m"<your_commit_message>"
 git push
 ```
+![image](https://github.com/user-attachments/assets/62295aa5-706e-4892-9835-a3135f624bff)
 
 ### 3. Run the ELT pipeline on Databricks
 ![image](https://github.com/user-attachments/assets/71fd04b7-8120-4311-8be5-60e02bbd35df)
