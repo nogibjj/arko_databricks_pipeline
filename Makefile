@@ -3,27 +3,27 @@ install:
 		pip install -r requirements.txt
 
 test:
-	python -m pytest -vv --cov=main --cov=mylib test_*.py
+	pytest tests/test_*.py -v
+
 
 format:	
-	black *.py 
+	black modules/*.py tests/*.py
 
 lint:
-	ruff check *.py mylib/*.py
+	ruff check modules/*.py tests/*.py
 
 container-lint:
 	docker run --rm -i hadolint/hadolint < .devcontainer/Dockerfile
 
-refactor: format lint
 
 deploy:
 
-	docker build -f .devcontainer/Dockerfile -t arko_cli_tool:latest .
+	docker build -f .devcontainer/Dockerfile -t elt_pipeline:latest .
 
-	docker rm -f arko_cli_tool
+	docker rm -f elt_pipeline
 
-	docker run -d --name arko_cli_tool -p 80:80 arko_cli_tool:latest
+	docker run -d --name elt_pipeline -p 80:80 elt_pipeline:latest
 
 	echo "Deployment completed."
 		
-all: install lint test format deploy
+all: install format lint test
