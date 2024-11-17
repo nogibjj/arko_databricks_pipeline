@@ -10,9 +10,6 @@ This project is to demonstrate how to perform ETL processes on a dataset and cre
 - A `mylib/transform.py` script to fetch data from inbound table, then perform transformations, and then load into the staging table.
 - A `mylib/query.py` custom script that take s the staging table and then outputs the % change in close value for the past 5 days, into the processed table.
 
-![image](https://github.com/user-attachments/assets/fc27b7c0-e55d-45d5-9cd0-b92fcad6eb6e)
-
-
 
 ## Project Structure
 
@@ -22,7 +19,7 @@ This project is to demonstrate how to perform ETL processes on a dataset and cre
 - `tests/`: Contains testing scripts.
 - `.devcontainer/`: Contains `Dockerfile` and VS Code configuration.
 - `.github/workflows/`: Contians CI/CD workflows for GitHub.
-![image](https://github.com/user-attachments/assets/86b856c0-d55a-486e-8811-984f8011456e)
+- 
 
 ## Databricks setup
 ### 1. Create Cluster
