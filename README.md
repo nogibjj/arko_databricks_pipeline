@@ -73,17 +73,21 @@ Dataflow is as follows:
 DBFS(file) [output from extract task] -> arko_inbound [output from load task] -> arko_staging [output from transform task] -> arko_processed [output from query task]
 
 ### Output of `extract` module:
+'dbfs:/FileStore/arko_databricks_etl/data/AAPL.csv'
 ![image](https://github.com/user-attachments/assets/b7d22f40-a1e1-4d5a-8931-fdfdf01a9627)
 
 ### Output of `load` module:
+https://dbc-c95fb6bf-a65d.cloud.databricks.com/explore/data/ids706_data_engineering/arko_inbound/aapl_raw?o=3670519680858392
 ![image](https://github.com/user-attachments/assets/ae543b00-de24-4dfb-ba57-4e8fa73434f8)
 ![image](https://github.com/user-attachments/assets/ab9fa013-ab86-45e4-9778-9c02df0d2a58)
 
 ### Output of `transform` module:
+https://dbc-c95fb6bf-a65d.cloud.databricks.com/explore/data/ids706_data_engineering/arko_staging/aapl_transformed?o=3670519680858392
 ![image](https://github.com/user-attachments/assets/48c46829-7e70-4a70-91e6-620db556137d)
 ![image](https://github.com/user-attachments/assets/db9ef583-2932-4b4b-8c5a-27508c23cc2f)
 
 ## Output of `query` module:
+https://dbc-c95fb6bf-a65d.cloud.databricks.com/explore/data/ids706_data_engineering/arko_processed/aapl_percent_change?o=3670519680858392
 ![image](https://github.com/user-attachments/assets/eb0f01eb-618d-4d7a-8949-11bbd77a3889)
 ![image](https://github.com/user-attachments/assets/8427a751-c7bf-437c-9099-9ba14248fe77)
 
