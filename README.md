@@ -19,7 +19,6 @@ This project is to demonstrate how to perform ETL processes on a dataset and cre
 - `tests/`: Contains testing scripts.
 - `.devcontainer/`: Contains `Dockerfile` and VS Code configuration.
 - `.github/workflows/`: Contians CI/CD workflows for GitHub.
-- 
 
 ## Databricks setup
 ### 1. Create Cluster
@@ -45,7 +44,7 @@ git clone https://github.com/nogibjj/arko_databricks_pipeline
 cd arko_databricks_pipeline
 ```
 
-### 2. Make changes to modules
+### 2. Make changes to modules and push to remote repo.
 
 ```bash
 git add .
