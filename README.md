@@ -25,6 +25,10 @@ The pipeline will first extract data from a source and then load it into DBFS. C
 ### 1. Create Cluster
 ![image](https://github.com/user-attachments/assets/31f347d4-916d-4341-a46c-0211b162672b)
 
+Note: Install all additional packages that are required to run the pipeline.
+![image](https://github.com/user-attachments/assets/abc8b842-60ce-403a-8c6e-0adf0b5e1144)
+
+
 ### 2. Create Catalog Schemas
 ![image](https://github.com/user-attachments/assets/6eaa8aa6-e4b3-4d81-80bc-b53fed46eec7)
 
