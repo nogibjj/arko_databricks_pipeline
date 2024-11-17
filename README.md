@@ -7,9 +7,9 @@ The pipeline will first extract data from a source and then load it into DBFS. C
 
 ## Pipeline Function
 - A `modules/extract.py` script to extract a csv file from github and then store it in dbfs.
-- A `mylib/load.py` script to load dbfs file into the inbound table.
-- A `mylib/transform.py` script to fetch data from inbound table, then perform transformations, and then load into the staging table.
-- A `mylib/query.py` custom script that take s the staging table and then outputs the % change in close value for the past 5 days, into the processed table.
+- A `modules/load.py` script to load dbfs file into the inbound table.
+- A `modules/transform.py` script to fetch data from inbound table, then perform transformations, and then load into the staging table.
+- A `modules/query.py` custom script that take s the staging table and then outputs the % change in close value for the past 5 days, into the processed table.
 
 
 ## Project Structure
