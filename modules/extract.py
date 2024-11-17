@@ -1,6 +1,19 @@
 import requests
 import pandas as pd
 from io import StringIO
+import re
+
+def sanitize_column_name(col_name):
+    """
+    Sanitize column names to conform to SQL naming conventions:
+    - Convert to lowercase
+    - Replace spaces and special characters with underscores
+    - Remove any leading or trailing spaces
+    """
+    col_name = col_name.strip()  # Remove leading/trailing spaces
+    col_name = col_name.lower()  # Convert to lowercase
+    col_name = re.sub(r'[^a-z0-9_]', '_', col_name)  # Replace non-alphanumeric characters with underscores
+    return col_name
 
 def extract_in_chunks(
     url="https://raw.githubusercontent.com/MainakRepositor/Datasets/refs/heads/master/Stocks/AAPL.csv",
@@ -9,7 +22,7 @@ def extract_in_chunks(
 ):
     """
     Extracts CSV data from a URL, processes it in chunks, renames 'Close(t)' to 'Close',
-    and writes the processed data to DBFS.
+    sanitizes all column names, and writes the processed data to DBFS.
     """
     try:
         # Download the data from the URL
@@ -26,10 +39,14 @@ def extract_in_chunks(
         first_chunk = True  # Flag to write header only once
 
         for chunk in chunk_iter:
-            # Rename 'Close(t)' column to 'Close'
-            if "Close(t)" in chunk.columns:
-                print("Renaming column 'Close(t)' to 'Close'")
-                chunk = chunk.rename(columns={"Close(t)": "Close"})
+            # Sanitize the column names
+            print("Sanitizing column names")
+            chunk.columns = [sanitize_column_name(col) for col in chunk.columns]
+
+            # Rename 'close(t)' column to 'close' (already sanitized)
+            if "close_t" in chunk.columns:
+                print("Renaming column 'close_t' to 'close'")
+                chunk = chunk.rename(columns={"close_t": "close"})
 
             # Append or write the chunk to the DBFS file
             with open(temp_file_path, "a" if not first_chunk else "w") as f:
