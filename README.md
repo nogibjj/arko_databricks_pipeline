@@ -68,7 +68,7 @@ Dataflow is as follows:
 DBFS(file) [output from extract task] -> arko_inbound [output from load task] -> arko_staging [output from transform task] -> arko_processed [output from query task]
 
 ### Output of `extract` module:
-![image](https://github.com/user-attachments/assets/c6277bbb-90cb-46e1-9fef-dd14cf1503bd)
+![image](https://github.com/user-attachments/assets/b7d22f40-a1e1-4d5a-8931-fdfdf01a9627)
 
 ### Output of `load` module:
 ![image](https://github.com/user-attachments/assets/ae543b00-de24-4dfb-ba57-4e8fa73434f8)
