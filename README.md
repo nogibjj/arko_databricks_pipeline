@@ -1,6 +1,6 @@
 [![CICD](https://github.com/nogibjj/arko_databricks_pipeline/actions/workflows/CICD.yml/badge.svg)](https://github.com/nogibjj/arko_databricks_pipeline/actions/workflows/CICD.yml)
 
-# Databrick ELT Pipeline
+# Databricks ELT Pipeline
 
 This project demonstrates how to setup a ELT pipeline in Databricks. The pipeline will first extract data from a source and then load it into DBFS. Consequently, it take the DBFS file as input and then load it into catalog tables in stages (inbound -> staging -> processed) based on sequential processing.
 
