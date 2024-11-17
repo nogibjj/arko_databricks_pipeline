@@ -32,7 +32,7 @@ The pipeline will first extract data from a source and then load it into DBFS. C
 ### 3. Create Workflow
 ![image](https://github.com/user-attachments/assets/b8edfe08-4c1d-44e6-994f-a8040db678bf)
 
-Note: The source code for each individual tasks in the workflow are setup with this Github repo.
+Note: The source code for each individual tasks in the workflow is synced with this Github repo.
 
 
 ## Steps to update modules and deploy
