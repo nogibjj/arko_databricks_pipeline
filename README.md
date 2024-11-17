@@ -2,7 +2,7 @@
 
 # Databrick ELT Pipeline
 
-This project is to demonstrate how to perform ETL processes on a dataset and creating a CLI tool enable users to interact with the database.
+This project demonstrates how to setup a ELT pipeline in Databricks. The pipeline will first extract data from a source and then load it into DBFS. Consequently, it take the DBFS file as input and then load it into catalog tables in stages (inbound -> staging -> processed) based on sequential processing.
 
 ## Pipeline Function
 - A `modules/extract.py` script to extract a csv file from github and then store it in dbfs.
