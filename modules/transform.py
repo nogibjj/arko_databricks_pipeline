@@ -4,10 +4,10 @@ from pyspark.sql import SparkSession
 spark = SparkSession.builder.appName("AAPL Data Transformations").getOrCreate()
 
 def transform(catalog="ids706_data_engineering", 
-                       input_database="arko_inbound", 
-                       input_table_name="aapl_data",
-                       output_database="arko_staging", 
-                       output_table_name="aapl_transformed"):
+             input_database="arko_inbound", 
+             input_table_name="aapl_raw",
+             output_database="arko_staging", 
+             output_table_name="aapl_transformed"):
     """
     Reads the input table, applies transformations, and creates a new table.
     """
@@ -23,9 +23,9 @@ def transform(catalog="ids706_data_engineering",
         # Apply transformations
         print("Applying transformations...")
         transformed_df = (
-            df.withColumnRenamed("Close", "Adjusted_Close")  # Example transformation
-              .filter(df["Volume"] > 1000000)               # Example: Filter high volume
-              .select("Date", "Open", "High", "Low", "Adjusted_Close", "Volume")
+            df.withColumnRenamed("close_t_", "adjusted_close")  # Renaming the 'close' column to 'adjusted_close'
+              .filter(df["volume"] > 1000000)               # Example: Filter high volume
+              .select("date", "open", "high", "low", "adjusted_close", "volume")  # Selecting columns
         )
 
         # Ensure the output database exists
