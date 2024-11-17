@@ -1,4 +1,4 @@
-name: Deploy Application
+name: CICD
 
 on:
   push:
@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.8, 3.9, 3.11]
+        python-version: [3.11]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -25,4 +25,4 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Deploy application
-        run: make deploy  # Adjust if needed
+        run: make all # Adjust if needed

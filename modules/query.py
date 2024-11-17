@@ -8,7 +8,7 @@ def custom_query(
               SELECT
                 `adjusted_close` AS ClosePrice,  -- Adjusted to use sanitized column name
                 `date`,
-                LAG(`close`, 1) OVER (ORDER BY `date` DESC) AS PrevClosePrice
+                LAG(`adjusted_close`, 1) OVER (ORDER BY `date` DESC) AS PrevClosePrice
               FROM arko_staging.aapl_transformed
               ORDER BY `date` DESC
               LIMIT 6  -- Get 6 rows to account for 5 changes
