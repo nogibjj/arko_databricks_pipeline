@@ -5,7 +5,7 @@ spark = SparkSession.builder.appName("AAPL Data Load").getOrCreate()
 
 def load_to_databricks(dataset="dbfs:/FileStore/arko_databricks_etl/data/AAPL.csv", 
                        catalog="ids706_data_engineering", 
-                       database="arko_aapl", 
+                       database="arko_inbound", 
                        table_name="aapl_data"):
     """Transforms and Loads only the first 6 columns of the CSV into a Databricks table"""
 
