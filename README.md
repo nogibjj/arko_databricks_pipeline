@@ -26,6 +26,7 @@ The pipeline will first extract data from a source and then load it into DBFS. C
 ![image](https://github.com/user-attachments/assets/31f347d4-916d-4341-a46c-0211b162672b)
 
 Note: Install all additional packages that are required to run the pipeline.
+
 ![image](https://github.com/user-attachments/assets/abc8b842-60ce-403a-8c6e-0adf0b5e1144)
 
 
@@ -34,9 +35,10 @@ Note: Install all additional packages that are required to run the pipeline.
 
 
 ### 3. Create Workflow
-![image](https://github.com/user-attachments/assets/b8edfe08-4c1d-44e6-994f-a8040db678bf)
+![image](https://github.com/user-attachments/assets/d0d63fe5-bd55-4cc8-8aae-2b13f93f3ac1)
 
 Note: The source code for each individual task in the workflow is synced with this Github repo.
+
 ![image](https://github.com/user-attachments/assets/c97c3ec0-d4cd-446b-8a0e-2b9f74591728)
 
 
