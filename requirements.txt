@@ -1,5 +1,6 @@
 black
 click
+pandas
 pyspark
 pytest
 pytest-cov
